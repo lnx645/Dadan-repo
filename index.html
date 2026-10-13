@@ -7,7 +7,7 @@
 <meta name="description" content="Portfolio Dadan, Full-Stack Developer dari Sumedang, Jawa Barat.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#06060d; --ink:#f5f6ff; --mut:#a2a8cc;
@@ -15,6 +15,7 @@
   --grad:linear-gradient(115deg,#c4b5fd 0%,#8b5cf6 35%,#22d3ee 100%);
   --glass:rgba(255,255,255,.045); --stroke:rgba(255,255,255,.10);
   --disp:'Space Grotesk','Plus Jakarta Sans',sans-serif;
+  --serif:'Instrument Serif',Georgia,serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);
@@ -24,8 +25,11 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);c
 ::-webkit-scrollbar-thumb{background:linear-gradient(var(--vio),var(--cy));border-radius:8px}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
-.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-@media(pointer:fine){body,a,button,.proj,.skill{cursor:none}}
+.grad{background:linear-gradient(115deg,#c4b5fd,#8b5cf6,#22d3ee,#c4b5fd);background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:gshift 7s linear infinite}
+@keyframes gshift{to{background-position:220% center}}
+.serif{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+@media(pointer:fine){body,a,button,.proj,.skill,.faq-q{cursor:none}}
 
 /* ---------- preloader ---------- */
 #loader{position:fixed;inset:0;z-index:200;background:var(--bg);display:flex;align-items:center;justify-content:center;
@@ -70,18 +74,18 @@ a{color:inherit;text-decoration:none}
   box-shadow:0 14px 44px rgba(0,0,0,.45);max-width:calc(100vw - 32px);
   transition:transform .45s cubic-bezier(.2,.7,.3,1)}
 .navpill.hide{transform:translate(-50%,-140%)}
-.logo{font-family:var(--disp);font-weight:700;font-size:1.15rem;letter-spacing:-.5px;margin-right:14px}
+.logo{font-family:var(--disp);font-weight:700;font-size:1.15rem;letter-spacing:-.5px;margin-right:14px;white-space:nowrap}
 .logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .nlinks{display:flex;gap:2px}
-.nlinks a{font-size:.88rem;font-weight:600;color:var(--mut);padding:9px 15px;border-radius:999px;transition:.25s}
+.nlinks a{font-size:.85rem;font-weight:600;color:var(--mut);padding:9px 13px;border-radius:999px;transition:.25s;white-space:nowrap}
 .nlinks a:hover{color:var(--ink);background:rgba(255,255,255,.06)}
 .nlinks a.active{color:var(--ink);background:rgba(139,92,246,.18)}
 .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 30px;border-radius:999px;font-weight:700;font-size:.95rem;
-  font-family:'Plus Jakarta Sans',sans-serif;background:var(--grad);color:#0b0b16;border:0;transition:box-shadow .28s;
+  font-family:'Plus Jakarta Sans',sans-serif;background:var(--grad);background-size:220% auto;color:#0b0b16;border:0;transition:box-shadow .28s,background-position .5s;
   box-shadow:0 10px 32px rgba(139,92,246,.4);position:relative;overflow:hidden;will-change:transform}
 .btn::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;transform:skewX(-20deg);
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transition:left .55s}
-.btn:hover{box-shadow:0 16px 44px rgba(139,92,246,.55)}
+.btn:hover{box-shadow:0 16px 44px rgba(139,92,246,.55);background-position:100% center}
 .btn:hover::after{left:130%}
 .btn.sm{padding:10px 22px;font-size:.86rem}
 .btn.ghost{background:rgba(255,255,255,.05);color:var(--ink);border:1px solid var(--stroke);box-shadow:none}
@@ -100,13 +104,14 @@ a{color:inherit;text-decoration:none}
 .hero h1{font-family:var(--disp);font-size:clamp(3.2rem,8vw,6rem);font-weight:700;line-height:1;letter-spacing:-3px;margin-bottom:6px}
 .hero h1 .stroke{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.55)}
 .type{font-family:var(--disp);font-size:clamp(1.25rem,3vw,1.8rem);font-weight:600;margin:16px 0 18px;min-height:2.2em}
-.type #typed{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.type #typed{background:linear-gradient(115deg,#c4b5fd,#8b5cf6,#22d3ee,#c4b5fd);background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:gshift 7s linear infinite}
 .caret{display:inline-block;width:3px;height:1.05em;background:var(--cy);margin-left:4px;vertical-align:-3px;animation:blink 1s infinite}
 .hero .desc{color:var(--mut);font-size:1.1rem;max-width:540px;margin-bottom:34px}
 .cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
 .hstats{display:flex;gap:38px;flex-wrap:wrap}
 .hstat b{display:block;font-family:var(--disp);font-size:1.9rem;font-weight:700;letter-spacing:-1px}
-.hstat b em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hstat b em{font-style:normal;background:var(--grad);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshift 7s linear infinite}
 .hstat span{font-size:.85rem;color:var(--mut)}
 .scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);width:26px;height:46px;border-radius:15px;
   border:2px solid rgba(255,255,255,.25);display:flex;justify-content:center;padding-top:9px}
@@ -119,8 +124,9 @@ a{color:inherit;text-decoration:none}
   border:1px solid var(--stroke);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   padding:44px 34px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.5);position:relative;overflow:hidden}
 .pcard .face::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 50% -40px,rgba(139,92,246,.35),transparent 70%)}
-.pcard .init{font-family:var(--disp);font-size:6.4rem;font-weight:700;line-height:1;background:var(--grad);
-  -webkit-background-clip:text;background-clip:text;color:transparent;position:relative}
+.pcard .init{font-family:var(--disp);font-size:6.4rem;font-weight:700;line-height:1;position:relative;
+  background:linear-gradient(115deg,#c4b5fd,#8b5cf6,#22d3ee,#c4b5fd);background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:gshift 7s linear infinite}
 .pcard .role{margin-top:10px;font-weight:700;position:relative}
 .pcard .loc{color:var(--mut);font-size:.9rem;position:relative}
 .pcard .row{display:flex;gap:10px;justify-content:center;margin-top:22px;position:relative}
@@ -153,24 +159,31 @@ section{padding:110px 0;position:relative}
 .eyebrow2 .num{font-family:var(--disp);font-size:.85rem;font-weight:700;color:var(--cy);border:1px solid rgba(34,211,238,.4);
   padding:5px 13px;border-radius:999px;background:rgba(34,211,238,.07)}
 .eyebrow2 .lbl{font-size:.82rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--mut)}
-.sec-title{font-family:var(--disp);font-size:clamp(2rem,4.6vw,3.1rem);font-weight:700;letter-spacing:-1.5px;line-height:1.12;margin-bottom:16px}
+.sec-title{font-family:var(--disp);font-size:clamp(2rem,4.6vw,3.1rem);font-weight:700;letter-spacing:-1.5px;line-height:1.14;margin-bottom:16px}
+.sec-title .serif{font-size:1.12em}
 .sec-sub{color:var(--mut);max-width:640px;margin-bottom:54px;font-size:1.05rem}
 .reveal{opacity:0;transform:translateY(38px);transition:opacity .8s cubic-bezier(.2,.65,.3,1),transform .8s cubic-bezier(.2,.65,.3,1)}
 .reveal.in{opacity:1;transform:none}
 
-/* ---------- about ---------- */
-.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:stretch}
+/* ---------- about : bento ---------- */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.bento .span2{grid-column:span 2}
 .gcard{background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.018));
-  border:1px solid var(--stroke);border-radius:24px;padding:38px;position:relative;overflow:hidden;
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:border-color .3s}
-.gcard:hover{border-color:rgba(139,92,246,.45)}
+  border:1px solid var(--stroke);border-radius:24px;padding:36px;position:relative;overflow:hidden;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:border-color .3s,transform .3s}
+.gcard:hover{border-color:rgba(139,92,246,.45);transform:translateY(-3px)}
 .gcard::before{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent)}
-.gcard h3{font-family:var(--disp);font-size:1.3rem;margin-bottom:16px;letter-spacing:-.5px}
-.gcard p{color:var(--mut);margin-bottom:15px;font-size:1rem}
+.gcard h3{font-family:var(--disp);font-size:1.25rem;margin-bottom:14px;letter-spacing:-.5px}
+.gcard p{color:var(--mut);margin-bottom:14px;font-size:.99rem}
 .gcard p b{color:var(--ink)}
 .gcard p:last-child{margin-bottom:0}
-.q{font-size:1.12rem;color:var(--ink)!important;border-left:3px solid;border-image:linear-gradient(var(--vio),var(--cy)) 1;padding-left:18px;font-style:italic}
+.q{font-size:1.15rem;color:var(--ink)!important;border-left:3px solid;border-image:linear-gradient(var(--vio),var(--cy)) 1;padding-left:18px;font-style:italic}
+.bstats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.bstat{background:rgba(255,255,255,.04);border:1px solid var(--stroke);border-radius:16px;padding:18px 14px;text-align:center}
+.bstat b{display:block;font-family:var(--disp);font-size:1.7rem;font-weight:700;letter-spacing:-1px;
+  background:var(--grad);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshift 7s linear infinite}
+.bstat span{font-size:.8rem;color:var(--mut)}
 .learn{margin-top:44px}
 .learn .lbl{font-size:.82rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--mut);margin-bottom:16px;display:block}
 .learn-row{display:flex;flex-wrap:wrap;gap:10px}
@@ -216,6 +229,19 @@ section{padding:110px 0;position:relative}
 .tags span{font-size:.76rem;font-weight:600;padding:5px 13px;border-radius:999px;background:rgba(139,92,246,.12);
   border:1px solid rgba(139,92,246,.35);color:#d6c9ff}
 
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{background:linear-gradient(165deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid var(--stroke);
+  border-radius:24px;padding:36px 32px;position:relative;overflow:hidden;transition:.3s;backdrop-filter:blur(10px)}
+.svc:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.5);box-shadow:0 22px 55px rgba(0,0,0,.45)}
+.svc .snum{font-family:var(--serif);font-style:italic;font-size:3rem;line-height:1;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.9}
+.svc h3{font-family:var(--disp);font-size:1.3rem;letter-spacing:-.5px;margin:16px 0 10px}
+.svc p{color:var(--mut);font-size:.95rem;margin-bottom:18px}
+.svc ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.svc li{font-size:.88rem;color:var(--mut);display:flex;gap:10px;align-items:center}
+.svc li::before{content:"✓";color:var(--cy);font-weight:800}
+
 /* ---------- experience ---------- */
 .tl{position:relative;padding-left:40px;max-width:720px}
 .tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;
@@ -229,15 +255,29 @@ section{padding:110px 0;position:relative}
 .tl-item h3{font-family:var(--disp);font-size:1.3rem;letter-spacing:-.5px;margin-bottom:8px}
 .tl-item p{color:var(--mut);font-size:.97rem}
 
+/* ---------- faq ---------- */
+.faq{max-width:760px}
+.faq-item{border:1px solid var(--stroke);border-radius:18px;margin-bottom:14px;background:var(--glass);
+  backdrop-filter:blur(8px);overflow:hidden;transition:border-color .3s}
+.faq-item.open{border-color:rgba(139,92,246,.5)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 26px;
+  background:none;border:0;color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:1.02rem;font-weight:700;text-align:left}
+.faq-q .pl{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--stroke);display:grid;place-items:center;
+  font-size:1.2rem;font-weight:400;color:var(--cy);transition:transform .35s,background .35s}
+.faq-item.open .pl{transform:rotate(45deg);background:rgba(139,92,246,.2)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.2,.7,.3,1)}
+.faq-a p{padding:0 26px 24px;color:var(--mut);font-size:.96rem}
+
 /* ---------- contact ---------- */
 .contact-box{background:linear-gradient(140deg,rgba(139,92,246,.16),rgba(34,211,238,.08) 60%,rgba(244,114,182,.1));
   border:1px solid rgba(139,92,246,.4);border-radius:32px;padding:80px 40px;text-align:center;position:relative;overflow:hidden}
 .contact-box::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(100px);
   background:rgba(139,92,246,.4);top:-180px;left:-120px;animation:drift 12s ease-in-out infinite alternate}
 .contact-box::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;filter:blur(100px);
-  background:rgba(34,211,238,.32);bottom:-180px;right:-100px;animation:drift 15s ease-in-out infinite alternate-reverse}
+  background:rgba(34,211,238,.32);bottom:-180px;right:-60px;animation:drift 15s ease-in-out infinite alternate-reverse}
 .contact-box>*{position:relative;z-index:1}
-.contact-box h2{font-family:var(--disp);font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:700;letter-spacing:-2px;line-height:1.08;margin-bottom:18px}
+.contact-box h2{font-family:var(--disp);font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:700;letter-spacing:-2px;line-height:1.12;margin-bottom:18px}
+.contact-box h2 .serif{font-size:1.1em}
 .contact-box p{color:var(--mut);max-width:540px;margin:0 auto 36px;font-size:1.05rem}
 .cbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
@@ -259,12 +299,17 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
   opacity:0;pointer-events:none;transition:.35s}
 .mmenu.open{opacity:1;pointer-events:auto}
-.mmenu a{font-family:var(--disp);font-size:2rem;font-weight:700;padding:10px;letter-spacing:-1px;transition:.25s}
+.mmenu a{font-family:var(--disp);font-size:1.7rem;font-weight:700;padding:8px;letter-spacing:-1px;transition:.25s}
 .mmenu a:hover{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .mmenu .x{position:absolute;top:26px;right:30px;font-size:2rem;background:none;border:0;color:var(--ink)}
 
+@media(max-width:1020px){
+  .svc-grid{grid-template-columns:1fr 1fr}
+}
 @media(max-width:920px){
-  .hero-grid,.about-grid{grid-template-columns:1fr}
+  .hero-grid{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr}
+  .bento .span2{grid-column:span 1}
   .hero{padding-top:130px}
   .pcard{order:-1;width:min(320px,80vw)}
   .fchip.f1{left:-6px}.fchip.f2{right:-6px}
@@ -274,6 +319,7 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
   .navpill .btn{display:none}
   section{padding:80px 0}
   .scroll-hint{display:none}
+  .svc-grid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
@@ -294,6 +340,7 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
     <a href="#about">Tentang</a>
     <a href="#skills">Keahlian</a>
     <a href="#projects">Proyek</a>
+    <a href="#services">Layanan</a>
     <a href="#experience">Pengalaman</a>
   </div>
   <a href="#contact" class="btn sm magnetic">Hubungi Saya</a>
@@ -303,7 +350,8 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
 <div class="mmenu" id="mmenu">
   <button class="x" id="mclose" aria-label="Tutup">&times;</button>
   <a href="#home">Beranda</a><a href="#about">Tentang</a><a href="#skills">Keahlian</a>
-  <a href="#projects">Proyek</a><a href="#experience">Pengalaman</a><a href="#contact">Kontak</a>
+  <a href="#projects">Proyek</a><a href="#services">Layanan</a><a href="#experience">Pengalaman</a>
+  <a href="#faq">FAQ</a><a href="#contact">Kontak</a>
 </div>
 
 <header class="hero" id="home">
@@ -359,20 +407,31 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
 <section id="about">
   <div class="wrap">
     <div class="eyebrow2 reveal"><span class="num">01</span><span class="lbl">Tentang Saya</span></div>
-    <h2 class="sec-title reveal">Masih pemula,<br>tapi <span class="grad">serius belajar.</span></h2>
+    <h2 class="sec-title reveal">Masih pemula,<br>tapi <span class="serif grad">serius belajar.</span></h2>
     <p class="sec-sub reveal">Sedikit cerita jujur tentang siapa saya dan perjalanan saya sejauh ini.</p>
-    <div class="about-grid">
-      <div class="gcard reveal">
+    <div class="bento">
+      <div class="gcard span2 reveal">
         <h3>Halo, saya Dadan &#128075;</h3>
         <p class="q">Saya masih pemula — tapi setiap baris kode yang saya tulis adalah satu langkah maju.</p>
         <p style="margin-top:18px">Saya developer dari <b>Sumedang, Jawa Barat</b>, berkarya di <b>Toufulabs</b>. Saat ini saya sedang mendalami <b>full-stack development</b>: <b>backend Go</b> (Gin, entgo) dengan <b>PostgreSQL</b> &amp; <b>Redis</b>, serta <b>frontend</b> dengan TypeScript dan React.</p>
-        <p>Masih banyak yang perlu saya pelajari — dan justru itu yang bikin saya semangat. Di luar jam ngoding, saya menulis catatan belajar di <b>me.dadan.pw</b>.</p>
+        <p>Masih banyak yang perlu saya pelajari — dan justru itu yang bikin saya semangat.</p>
       </div>
       <div class="gcard reveal" data-delay="120">
-        <h3>Yang sedang saya fokuskan</h3>
-        <p>&#127793; <b>Belajar konsisten</b> — ngoding dan eksplorasi teknologi hampir setiap hari.</p>
-        <p>&#128218; <b>Bangun portfolio</b> — mengerjakan proyek nyata untuk mengasah kemampuan.</p>
-        <p>&#129309; <b>Terbuka kolaborasi</b> — senang belajar bareng dan menerima masukan.</p>
+        <h3>&#127793; Fokus saat ini</h3>
+        <p><b>Belajar konsisten</b> — ngoding hampir setiap hari.</p>
+        <p><b>Bangun portfolio</b> — proyek nyata untuk mengasah kemampuan.</p>
+        <p><b>Terbuka kolaborasi</b> — senang belajar bareng.</p>
+      </div>
+      <div class="gcard reveal" data-delay="80">
+        <h3>&#128202; Angka</h3>
+        <div class="bstats">
+          <div class="bstat"><b><span data-count="300">0</span>+</b><span>Repo</span></div>
+          <div class="bstat"><b><span data-count="130">0</span>+</b><span>Following</span></div>
+        </div>
+      </div>
+      <div class="gcard span2 reveal" data-delay="160">
+        <h3>&#128221; Di luar ngoding</h3>
+        <p>Saya menulis catatan belajar dan eksperimen di blog pribadi <b>me.dadan.pw</b> — dokumentasi perjalanan saya dari nol, siapa tahu berguna buat yang juga baru mulai.</p>
       </div>
     </div>
     <div class="learn reveal">
@@ -394,7 +453,7 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
 <section id="skills">
   <div class="wrap">
     <div class="eyebrow2 reveal"><span class="num">02</span><span class="lbl">Keahlian</span></div>
-    <h2 class="sec-title reveal">Senjata <span class="grad">andalan</span> saya</h2>
+    <h2 class="sec-title reveal">Senjata <span class="serif grad">andalan</span> saya</h2>
     <p class="sec-sub reveal">Stack yang saya pakai sehari-hari untuk membangun aplikasi production-ready.</p>
     <div class="skills-grid reveal">
       <div class="skill"><span class="ico">&#128373;</span><span>Go</span></div>
@@ -416,7 +475,7 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
 <section id="projects">
   <div class="wrap">
     <div class="eyebrow2 reveal"><span class="num">03</span><span class="lbl">Proyek Pilihan</span></div>
-    <h2 class="sec-title reveal">Karya yang saya <span class="grad">banggakan</span></h2>
+    <h2 class="sec-title reveal">Karya yang saya <span class="serif grad">banggakan</span></h2>
     <p class="sec-sub reveal">Arahkan kursor ke kartu untuk efek 3D-nya.</p>
     <div class="proj-grid">
       <article class="proj reveal" data-tilt>
@@ -453,10 +512,38 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
   </div>
 </section>
 
+<section id="services">
+  <div class="wrap">
+    <div class="eyebrow2 reveal"><span class="num">04</span><span class="lbl">Layanan</span></div>
+    <h2 class="sec-title reveal">Yang bisa saya <span class="serif grad">bantu</span></h2>
+    <p class="sec-sub reveal">Fokus pada hal-hal yang sudah saya kuasai — dengan harga bersahabat khas pemula yang serius.</p>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="snum">01</div>
+        <h3>Website &amp; Landing Page</h3>
+        <p>Landing page modern dan responsif untuk bisnis, personal branding, atau acara spesial. Desain menarik, loading cepat.</p>
+        <ul><li>Desain responsif (HP &amp; desktop)</li><li>Animasi halus &amp; modern</li><li>SEO dasar</li></ul>
+      </div>
+      <div class="svc reveal" data-delay="120">
+        <div class="snum">02</div>
+        <h3>Backend API</h3>
+        <p>REST API dengan Go (Gin) — autentikasi, database PostgreSQL, dan struktur kode yang rapi dan terdokumentasi.</p>
+        <ul><li>Autentikasi &amp; otorisasi</li><li>PostgreSQL + Redis</li><li>Dokumentasi API</li></ul>
+      </div>
+      <div class="svc reveal" data-delay="240">
+        <div class="snum">03</div>
+        <h3>Undangan Digital</h3>
+        <p>Berpengalaman membangun platform undangan digital (Invitnesia) — tema cantik, galeri foto, dan RSVP.</p>
+        <ul><li>Tema cantik &amp; variatif</li><li>Galeri &amp; musik</li><li>RSVP &amp; buku tamu</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="experience">
   <div class="wrap">
-    <div class="eyebrow2 reveal"><span class="num">04</span><span class="lbl">Pengalaman</span></div>
-    <h2 class="sec-title reveal">Jejak <span class="grad">langkah</span> saya</h2>
+    <div class="eyebrow2 reveal"><span class="num">05</span><span class="lbl">Pengalaman</span></div>
+    <h2 class="sec-title reveal">Jejak <span class="serif grad">langkah</span> saya</h2>
     <p class="sec-sub reveal">Ringkasan perjalanan profesional sejauh ini.</p>
     <div class="tl">
       <div class="tl-item reveal">
@@ -477,11 +564,37 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
   </div>
 </section>
 
+<section id="faq">
+  <div class="wrap">
+    <div class="eyebrow2 reveal"><span class="num">06</span><span class="lbl">FAQ</span></div>
+    <h2 class="sec-title reveal">Sering <span class="serif grad">ditanyakan</span></h2>
+    <p class="sec-sub reveal">Jawaban jujur untuk pertanyaan yang paling sering masuk.</p>
+    <div class="faq">
+      <div class="faq-item reveal">
+        <button class="faq-q">Apakah menerima proyek freelance?<span class="pl">+</span></button>
+        <div class="faq-a"><p>Ya, saya terbuka untuk proyek kecil hingga menengah — terutama website, landing page, dan backend API. Karena masih pemula, harga saya bersahabat dan saya kerjakan dengan sungguh-sungguh.</p></div>
+      </div>
+      <div class="faq-item reveal" data-delay="80">
+        <button class="faq-q">Berapa lama pengerjaan sebuah website?<span class="pl">+</span></button>
+        <div class="faq-a"><p>Landing page sederhana biasanya 3–7 hari kerja, tergantung kompleksitas desain dan konten. Untuk yang lebih kompleks, kita diskusikan timeline-nya di awal agar sama-sama nyaman.</p></div>
+      </div>
+      <div class="faq-item reveal" data-delay="160">
+        <button class="faq-q">Bagaimana alur kerja samanya?<span class="pl">+</span></button>
+        <div class="faq-a"><p>Diskusi kebutuhan → kesepakatan scope &amp; harga → development dengan update berkala → revisi → serah terima + panduan. Kamu selalu tahu progresnya, tidak ada yang dikerjakan diam-diam.</p></div>
+      </div>
+      <div class="faq-item reveal" data-delay="240">
+        <button class="faq-q">Apakah bisa revisi setelah jadi?<span class="pl">+</span></button>
+        <div class="faq-a"><p>Tentu. Revisi wajar sudah termasuk dalam kesepakatan — misalnya penyesuaian teks, warna, atau tata letak. Untuk perubahan besar di luar scope awal, kita diskusikan tambahan biayanya secara terbuka.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="wrap">
     <div class="contact-box reveal">
-      <div class="eyebrow2" style="justify-content:center"><span class="num">05</span><span class="lbl">Kontak</span></div>
-      <h2>Punya ide brilian?<br><span class="grad">Wujudkan bareng saya.</span></h2>
+      <div class="eyebrow2" style="justify-content:center"><span class="num">07</span><span class="lbl">Kontak</span></div>
+      <h2>Punya ide brilian?<br><span class="serif grad">Wujudkan bareng saya.</span></h2>
       <p>Saya selalu terbuka untuk proyek baru, kolaborasi seru, atau sekadar diskusi soal teknologi. Respon cepat, janji!</p>
       <div class="cbtns">
         <a href="https://github.com/lnx645" target="_blank" rel="noopener" class="btn magnetic">GitHub Saya &nearr;</a>
@@ -542,7 +655,7 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
     }
   }
   window.addEventListener('load',function(){ setTimeout(hideLoader,900); });
-  setTimeout(hideLoader,2800); // failsafe
+  setTimeout(hideLoader,2800);
 
   /* ---------- custom cursor ---------- */
   if(fine){
@@ -555,7 +668,7 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
       ring.style.transform='translate('+(rx-ring.offsetWidth/2)+'px,'+(ry-ring.offsetHeight/2)+'px)';
       requestAnimationFrame(loop);
     })();
-    document.querySelectorAll('a,button,.proj,.skill,.soc').forEach(function(el){
+    document.querySelectorAll('a,button,.proj,.skill,.soc,.faq-q').forEach(function(el){
       el.addEventListener('mouseenter',function(){ring.classList.add('big');});
       el.addEventListener('mouseleave',function(){ring.classList.remove('big');});
     });
@@ -647,6 +760,22 @@ footer .flogo em{font-style:normal;background:var(--grad);-webkit-background-cli
       card.addEventListener('mouseleave',function(){card.style.transform='';});
     });
   }
+
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
+    q.addEventListener('click',function(){
+      var isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight=null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight=a.scrollHeight+'px';
+      }
+    });
+  });
 
   /* ---------- seamless marquees ---------- */
   ['mq1','mq2'].forEach(function(id){
